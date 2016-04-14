@@ -1,9 +1,9 @@
 {
     "name": "__MSG_appName__",
-    "version": "3.8.6",
+    "version": "1.0.0",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
-    "homepage_url": "https://github.com/octo-linker/chrome-extension",
+    "homepage_url": "https://github.com/mangothecat/cran-browser-ext",
     "icons": {
         "128": "images/icon-128.png"
     },
@@ -33,6 +33,6 @@
     ],
     "permissions": [
         "storage",
-        "https://githublinker.herokuapp.com/"
+        "https://code.r-pkg.org/"
     ]
 }

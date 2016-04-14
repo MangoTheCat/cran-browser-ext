@@ -1,9 +1,9 @@
 {
-  "name": "octo-linker-chrome-extension",
-  "version": "3.8.5",
+  "name": "cran-browser-ext",
+  "version": "1.0.0",
   "dependencies": {
     "browser-request": "^0.3.3",
-    "octo-linker-core": "octo-linker/core",
+    "cran-browser-core": "MangoTheCat/cran-browser-core",
     "jquery": "^2.1.1"
   },
   "devDependencies": {

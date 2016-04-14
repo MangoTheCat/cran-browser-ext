@@ -1,6 +1,6 @@
 {
-  "name": "octo-linker",
-  "version": "0.0.0",
+  "name": "cran-browser-ext",
+  "version": "1.0.0",
   "dependencies": {
     "bootstrap": "~3.3.1"
   },

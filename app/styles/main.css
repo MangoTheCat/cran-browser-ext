@@ -1,7 +1,8 @@
-.octo-linker {
+.cran-browser {
+    color: blue;
     cursor: pointer;
 }
 
-.octo-linker:hover {
+.cran-browser:hover {
     text-decoration: underline;
 }
