@@ -1,1 +1,11 @@
-/node_modules
+node_modules
+temp
+.tmp
+dist
+.sass-cache
+app/bower_components
+test/bower_components
+package
+.DS_Store
+app/scripts/contentscript.js
+app/scripts/options.js
