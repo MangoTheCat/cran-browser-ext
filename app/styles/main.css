@@ -1,8 +1,12 @@
-.cran-browser {
-    color: blue;
+.blob-code a {
+    color: #fea814 !important;
+}
+
+a.cran-browser {
+    color: #fea814;
     cursor: pointer;
 }
 
-.cran-browser:hover {
+a.cran-browser:hover {
     text-decoration: underline;
 }
