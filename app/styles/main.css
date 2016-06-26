@@ -1,9 +1,10 @@
 .blob-code a {
-    color: #fea814 !important;
+    color: #0 !important;
 }
 
 a.cran-browser {
-    color: #fea814;
+    color: #0;
+    font-weight: bold;
     cursor: pointer;
 }
 
