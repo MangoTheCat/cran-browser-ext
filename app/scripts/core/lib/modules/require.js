@@ -47,13 +47,15 @@ function init(root, data, mypackage, options, cb) {
     var link = 'https://code.r-pkg.org/api/redirect/' + target.pkg + '/' +
 	  target.to;
 
-    // TODO: proper replacement intead of this
-    var content = $td.html()
-	.replace(
-	  new RegExp('\\b' + target.to + '\\b'),
-	  '<a class="cran-browser" href="' + link + '">' + target.to + '</a>'
-	);
-    $td.html(content);
+      // TODO: proper replacement intead of this
+    if ($td.html()) {
+	var content = $td.html()
+	    .replace(
+		new RegExp('\\b' + target.to + '\\b'),
+		'<a class="cran-browser" href="' + link + '">' + target.to + '</a>'
+	    );
+	$td.html(content);
+    }
   });
 
   cb(null, result);
