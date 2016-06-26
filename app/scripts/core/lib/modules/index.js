@@ -34,9 +34,9 @@ module.exports = function(root, options, cb) {
   };
 
   // Download the data here, and call all callbacks
-  var pkg = utils.cranPackage(root);
-  var mapurl = utils.mapUrl(pkg);
-  loader(mapurl, { type: 'GET' }, function(err, body, url) {
+  var cranfile = utils.cranFile(root);
+  var fileurl = utils.fileUrl(cranfile);
+  loader(fileurl, { type: 'GET' }, function(err, body, url) {
     if (err) return cb(err);
 
     _.each(modules, function(func, key) {

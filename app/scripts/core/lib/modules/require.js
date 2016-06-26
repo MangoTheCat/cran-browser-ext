@@ -18,15 +18,6 @@ function isMyCall(call, url) {
   return url.indexOf(file) === url.length - file.length;
 }
 
-function getTargetObject(func, functions) {
-
-  for (var i = 0; i < functions.length; i++) {
-    if (functions[i].ID == func) { return functions[i]; }
-  }
-
-  return undefined;
-}
-
 function init(root, data, options, cb) {
 
   var result = [];
@@ -35,15 +26,11 @@ function init(root, data, options, cb) {
   var $root = $('table.js-file-line-container');
   if (!$root || $root.length === 0) { return; }
 
-  var mycalls = data['calls']
-      .filter(function(x) { return isMyCall(x, locationUrl); });
-
-  mycalls.forEach(function(call) {
+  data.forEach(function(call) {
+    console.log(call)
     var $td = $root.find("#LC" + call.line);
     var func = call.to;
-    var target = getTargetObject(func, data['functions']);
-    var link = 'https://github.com/cran/' + data['package'] +
-	'/blob/master' + target.file + '#L' + target.line;
+    var link = 'https://github.com/cran/';
 
     var content = $td.html()
 	.replace(

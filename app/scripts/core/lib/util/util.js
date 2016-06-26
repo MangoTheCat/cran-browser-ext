@@ -22,30 +22,36 @@ var showLoader = function($) {
   $('.page-context-loader').addClass('is-context-loading');
 };
 
-var cranPackage = function(root) {
+var cranFile = function(root) {
   var parser = document.createElement('a');
   parser.href = root.location.href;
   var comps = parser.pathname.split('/');
   if (comps[1] == 'cran') {
-    return comps[2];
+      var pkg = comps[2];
+      var file = comps[comps.length - 1];
+      var blob = comps.indexOf('blob');
+      if (blob > -1) {
+	  // need to drop the banch as well, hence + 2
+	  file = comps.slice(blob + 2, comps.length).join('/');
+      }
+
+      return { 'package': pkg, 'file': file }
   } else {
-    return undefined;
+      return undefined;
   }
 }
 
-var cranPackageLink = function(pkg) {
-  return 'https://github.com/cran/' + pkg;
-}
-
-var mapUrl = function(pkg) {
-  return 'https://code.r-pkg.org/api/map/' + pkg;
+var fileUrl = function(cranfile) {
+    return 'https://code.r-pkg.org/api/filelinks/' +
+	cranfile.package +
+	'/' +
+	cranfile.file;
 }
 
 module.exports = {
   stripQuotes: stripQuotes,
   urlMatch: urlMatch,
   showLoader: showLoader,
-  cranPackage: cranPackage,
-  mapUrl: mapUrl,
-  cranPackageLink: cranPackageLink
+  cranFile: cranFile,
+  fileUrl: fileUrl
 };
