@@ -2,6 +2,20 @@
 
 var utils = require('../util/util.js');
 
+function parseTarget(call) {
+    var from = call.from;
+    var pkg, to;
+    if (/::/.test(call.to)) {
+	pkg = call.to.replace(/^([^:]*).*$/, function(x, $1) { return $1 });
+	to = call.to.replace(/^[^:]*::(.*)$/, function(x, $1) { return $1 });
+    } else {
+	pkg = 'devtools';
+	to = call.to;
+    }
+
+    return { 'from': from, 'pkg': pkg, 'to': to };
+}
+
 function supported(root, cb) {
   var isGist = !!root.$('.gist-content').length;
   var isRepo = !!root.$('.repository-content').length;
@@ -27,15 +41,17 @@ function init(root, data, options, cb) {
   if (!$root || $root.length === 0) { return; }
 
   data.forEach(function(call) {
-    console.log(call)
     var $td = $root.find("#LC" + call.line);
-    var func = call.to;
-    var link = 'https://github.com/cran/';
+    var target = parseTarget(call);
 
+    var link = 'https://code.r-pkg.org/api/redirect/' + target.pkg + '/' +
+	  target.to;
+
+    // TODO: proper replacement intead of this
     var content = $td.html()
 	.replace(
-	  new RegExp('\\b' + func + '\\b'),
-	  '<a class="cran-browser" href="' + link + '">' + func + '</a>'
+	  new RegExp('\\b' + target.to + '\\b'),
+	  '<a class="cran-browser" href="' + link + '">' + target.to + '</a>'
 	);
     $td.html(content);
   });
