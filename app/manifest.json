@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "1.0.72",
+    "version": "1.0.76",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "homepage_url": "https://github.com/mangothecat/cran-browser-ext",

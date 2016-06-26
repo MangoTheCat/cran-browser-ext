@@ -2,9 +2,13 @@
   "name": "cran-browser-ext",
   "version": "1.0.0",
   "dependencies": {
+    "async": "^1.5.2",
     "browser-request": "^0.3.3",
-    "cran-browser-core": "MangoTheCat/cran-browser-core",
-    "jquery": "^2.1.1"
+    "builtins": "^1.0.3",
+    "github-injection": "^0.2.0",
+    "github-linker": "MangoTheCat/github-linker",
+    "jquery": "^2.2.3",
+    "lodash": "^4.11.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

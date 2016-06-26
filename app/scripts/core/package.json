@@ -1,0 +1,42 @@
+{
+  "name": "cran-browser-core",
+  "description": "The GitHub Linker core",
+  "version": "1.0.0",
+  "homepage": "https://github.com/MangoTheCat/cran-browser-core",
+  "bugs": "https://github.com/MangoTheCat/cran-browser-core/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "author": {
+    "name": "Gabor Csardi",
+    "email": "gcsardi@mango-solutions.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MangoTheCat/cran-browser-core"
+  },
+  "keywords": [],
+  "dependencies": {
+    "async": "^1.5.2",
+    "builtins": "^1.0.3",
+    "github-injection": "^0.2.0",
+    "github-linker": "MangoTheCat/github-linker",
+    "jquery": "^2.2.3",
+    "lodash": "^4.11.1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.1.0",
+    "gulp-istanbul": "^0.10.4",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "jsdom": "^8.3.1",
+    "jshint-stylish": "^2.1.0",
+    "should": "^8.3.0",
+    "sinon": "^1.17.3"
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-var cranBrowserCore = require('cran-browser-core');
+var cranBrowserCore = require('./core');
 var $ = require('jquery');
 window.$ = $;
 
