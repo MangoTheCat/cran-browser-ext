@@ -2,14 +2,14 @@
 
 var utils = require('../util/util.js');
 
-function parseTarget(call) {
+function parseTarget(call, mypackage) {
     var from = call.from;
     var pkg, to;
     if (/::/.test(call.to)) {
 	pkg = call.to.replace(/^([^:]*).*$/, function(x, $1) { return $1 });
 	to = call.to.replace(/^[^:]*::(.*)$/, function(x, $1) { return $1 });
     } else {
-	pkg = 'devtools';
+	pkg = mypackage;
 	to = call.to;
     }
 
@@ -32,7 +32,7 @@ function isMyCall(call, url) {
   return url.indexOf(file) === url.length - file.length;
 }
 
-function init(root, data, options, cb) {
+function init(root, data, mypackage, options, cb) {
 
   var result = [];
   var locationUrl = root.location.href;
@@ -42,7 +42,7 @@ function init(root, data, options, cb) {
 
   data.forEach(function(call) {
     var $td = $root.find("#LC" + call.line);
-    var target = parseTarget(call);
+    var target = parseTarget(call, mypackage);
 
     var link = 'https://code.r-pkg.org/api/redirect/' + target.pkg + '/' +
 	  target.to;

@@ -41,7 +41,7 @@ module.exports = function(root, options, cb) {
 
     _.each(modules, function(func, key) {
       InvokeModule[key] = function(cb) {
-	func(root, body, options, cb);
+	func(root, body, cranfile.package, options, cb);
       };
     });
 
