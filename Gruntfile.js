@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                     '<%= config.app %>/scripts/_contentscript.js', '!<%= config.app %>/scripts/contentscript.js',
                     '<%= config.app %>/scripts/_options.js', '!<%= config.app %>/scripts/options.js'
                 ],
-                tasks: ['jshint', 'browserify'],
+                tasks: ['browserify'],
                 options: {
                     livereload: true
                 }
@@ -107,20 +107,6 @@ module.exports = function (grunt) {
             }
         },
 
-        // Make sure code styles are up to par and there are no obvious mistakes
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
-            },
-            all: [
-                'Gruntfile.js',
-                '<%= config.app %>/scripts/{,*/}*.js',
-                '!<%= config.app %>/scripts/contentscript.js',
-                '!<%= config.app %>/scripts/options.js',
-                'test/spec/{,*/}*.js'
-            ]
-        },
         mocha: {
             all: {
                 options: {
@@ -309,7 +295,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('debug', function () {
         grunt.task.run([
-            'jshint',
             'browserify',
             'concurrent:chrome',
             'connect:chrome',
@@ -337,7 +322,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
         'build'
     ]);
 };
