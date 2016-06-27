@@ -32,13 +32,27 @@ function isMyCall(call, url) {
   return url.indexOf(file) === url.length - file.length;
 }
 
-function init(root, data, mypackage, options, cb) {
+function manualClick(message, sender, response) {
+    var redirect_url = "https://code.r-pkg.org/api/redirect";
+    var linkurl = message.linkUrl;
+    if (linkurl.startsWith(redirect_url)) {
+	var url = linkurl.replace('/redirect/', '/redirectdocs/');
+	window.location.href = url;
+    } else {
+	// do nothing
+    }
 
+    response("OK");
+}
+
+function init(root, data, mypackage, options, cb) {
   var result = [];
   var locationUrl = root.location.href;
   var $ = root.$;
   var $root = $('table.js-file-line-container');
   if (!$root || $root.length === 0) { return; }
+
+  chrome.extension.onMessage.addListener(manualClick);
 
   data.forEach(function(call) {
     var $td = $root.find("#LC" + call.line);
